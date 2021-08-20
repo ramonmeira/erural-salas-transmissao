@@ -22,12 +22,15 @@ class VideosController < ApplicationController
   # POST /videos or /videos.json
   def create
     @sala = Sala.find(params[:sala_id])
-    
+
     @new = video_params
     @code = @new[:code]
     @code["https://www.youtube.com/watch?v="] = ""
     @new[:code] = @code
-    @video = @sala.video.create(@new)
+
+    @video = Video.where(sala_id: params[:sala_id]).first_or_initialize
+    @video.code = @code
+    @video.save
 
     redirect_to sala_path(@sala)
   end
