@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="sala">
+		<h2>Sala: <%= @sala.title %></h2>
+		<%= link_to "Editar", edit_sala_path(@sala), :class => 'btn btn-default' %>
+		<%= link_to "Deletar", sala_path(@sala), 
+			method: :delete, 
+			data: {confirm: 'Tem certeza que deseja deletar?'},
+			:class => 'btn btn-danger' %>
+	</div>
+	<div class="add-video">
+		<h2>Vídeo:</h2>
+		<%= form_with model: [ @sala, @sala.video.build ] do |form| %>
+		<p>
+			<%= form.label :URL %><br>
+			<%= form.text_field :code %>
+		</p>
+		<p>
+			<%= form.submit :Salvar %>
+		</p>
+		<% end %>
+	</div>
+	<hr>
+	<% if @sala.video[0].code != nil && @sala.video[0].code != "" %>
+		<div class="video">
+			<iframe width="600" height="300"
+				src="http://www.youtube.com/embed/<%= @sala.video[0].code %>">
+			</iframe>
+		</div>
+	<% else %>
+		<h3>Adicione um vídeo</h3>
+	<% end %>
+
+	
+</div>

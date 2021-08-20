@@ -1,0 +1,18 @@
+<div class="container">
+	<h1>Nova Sala</h1>
+	<%= form_for :sala, url: salas_path do |f| %>
+		<% if @sala.errors.any? %>
+			<% @sala.errors.full_messages.each do |msg| %>
+				<div class="alert alert-danger"><%= msg %></div>
+			<% end %>
+		<% end %>
+
+		<p>
+			<%= f.label :nome %><br>
+			<%= f.text_field(:title, {:class => 'form-control'}) %>
+		</p>
+		<p>
+			<%= f.submit("Salvar", {:class => 'btn btn-primary'}) %>
+		</p>
+	<% end %>
+</div>

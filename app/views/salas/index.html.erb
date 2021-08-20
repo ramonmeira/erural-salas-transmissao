@@ -1,2 +1,28 @@
-<h1>Salas#index</h1>
-<p>Find me in app/views/salas/index.html.erb</p>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Salas</h1>
+        
+        <div class="square">
+            <div class="block">
+                <div class="centered">
+                    <div class="sala">
+                        <%= link_to new_sala_path do %>
+                            <i class="bi bi-plus-lg plus-button"></i>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% @salas.each do |sala| %>
+            <div class="square">
+                <div class="block">
+                    <div class="centered">
+                        <div class="lista-salas">
+                            <%= link_to sala.title, sala %>        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

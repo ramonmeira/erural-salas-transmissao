@@ -11,7 +11,6 @@
 <div align="center">
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)]()
-[![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)]()
 
 [![Ruby Version][ruby-image]][ruby-url]
 [![Rails Version][rails-image]][rails-url]
@@ -32,18 +31,46 @@
   - SQLite3
   - Node.js
   - Yarn
-- Configuration
-- Database creation
-- Database initialization
+- Instalar as dependências
 
 ```sh
-rails s
+bundle install
+yarn install --check-files
+```
+
+- Criar o banco de dados
+
+```sh
+rails db:migrate
+```
+
+- Rodar a aplicação
+
+```sh
+rails server
 ```
 
 ## Histórico de lançamentos
 
+- 0.1.0
+
+  - Tela inicial
+    - Com a lista dos canais disponíveis
+  - Tela de sobre
+    - Apenas as informações basicas
+  - Tela da sala
+    - CRUD da sala
+    - Parte do CRUD dos vídeos
+
 - 0.0.1
   - Trabalho em andamento
+
+## Próximos passos
+
+- Melhorar a estética da aplicacação
+- Finalizar o CRUD dos vídeos
+  - Verificar a possibilidade de mais de um vídeo por sala
+- Adicionar footer
 
 [ruby-image]: https://img.shields.io/static/v1?label=ruby&message=3.0.2p107&color=orange
 [ruby-url]: https://www.ruby-lang.org/pt/
